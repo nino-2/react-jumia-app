@@ -88,7 +88,7 @@ const Footer = () => {
               </li>
             </ul>
             <span className='spite1'>USEFUL LINKS</span>
-            <ul className='rotten'>
+            <ul className='rotten4'>
               <li>
                 <a href="#" className='rot'>Service Center</a>
               </li>
@@ -125,7 +125,7 @@ const Footer = () => {
                 <a href="#" className='rot'>About us</a>
               </li>
               <li>
-              <a href="#" className='rot'>Jumia careers</a>
+              <a href="#" className='rot1'>Jumia careers</a>
               </li>
               <li>
               <a href="#" className='rot'>Jumia Express</a>
@@ -137,19 +137,19 @@ const Footer = () => {
               <a href="#" className='rot'>Privacy Notice</a>
               </li>
               <li>
-              <a href="#" className='rot'>Jumia Store Credit Terms and Conditions</a>
+              <a href="#" className='rot1'>Jumia Store Credit Terms and Conditions</a>
               </li>
               <li>
-              <a href="#" className='rot'>Jumia Payment Information Guidelines</a>
+              <a href="#" className='rot1'>Jumia Payment Information Guidelines</a>
               </li>
               <li>
-              <a href="#" className='rot'>Cookie Notice</a>
+              <a href="#" className='rot1'>Cookie Notice</a>
               </li>
               <li>
-              <a href="#" className='rot'>Jumia Global</a>
+              <a href="#" className='rot1'>Jumia Global</a>
               </li>
               <li>
-              <a href="#" className='rot'>Official Stores</a>
+              <a href="#" className='rot1'>Official Stores</a>
               </li>
               <li>
               <a href="#" className='rot'>Flash Sales</a>

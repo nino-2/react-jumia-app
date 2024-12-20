@@ -57,7 +57,7 @@ const Navbar = () => {
               
             />
             <a
-              className="nav-link text-black dropdown-toggle"
+              className="nav-link text-black dropdown-toggle c67"
               href="#"
               role="button"
               data-bs-toggle="dropdown"

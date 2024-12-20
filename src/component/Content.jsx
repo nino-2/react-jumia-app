@@ -248,19 +248,19 @@ const Content = () => {
                 </div>
                 <p className='subtext'>Appliances Deals</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardFifty}  className='imglock1' />
                 </div>
                 <p className='subtext'>Up to 50% off</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardPhone}  className='imglock1' />
                 </div>
                 <p className='subtext'>Phones & Tablet Deals</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardSpecial}  className='imglock1' />
                 </div>
@@ -270,18 +270,18 @@ const Content = () => {
           
         </section>
        </div>
-        <div className='xxl'>
+        <div className='xxl4'>
         <section className='cardoh'>
           <header className='disect' style={{backgroundColor:'red', color:'white'}}>
             <div className='testing'>
                 <img src={iconFlash} className='flashsale' />
                 <p className="size">Flash Sales</p>
             </div>
-            <div>
+            <div className='yog'>
                 <span className='fog'>Time Left:</span>
                 <time className='ffs' dateTime='2024-08-14' id='demo'> 14h : 59m : 00s </time>
               </div>
-            <div>
+            <div className='yoga'>
                 <a className='just1' href="#">
                   SEE ALL
                   <img src={arrow} className='dirt' />
@@ -354,7 +354,7 @@ const Content = () => {
           </div>
         </section>
        </div>
-        <section className='xxl'>
+        <section className='xxl1'>
         <div
           className='webgif'
           style={{
@@ -381,7 +381,7 @@ const Content = () => {
             <div className="d-flex align-items-center">
                 <p className="size">Limited Stock Deals</p>
             </div>
-            <div>
+            <div className='yoga'>
                 <a className="just1" href="#">
                   SEE ALL
                   <img src={arrow} className='dirt' />
@@ -457,7 +457,7 @@ const Content = () => {
           </div>
         </section>
        </div>
-       <section className='xxl'>
+       <section className='xxl2'>
         <div
           className='webgif1'
           style={{
@@ -477,7 +477,7 @@ const Content = () => {
         </section>
        <div className='xxl'>
         <section className='cardth'>
-          <header className='disect' style={{backgroundColor:'#FF550C', color:'white'}}>
+          <header className='disect1' style={{backgroundColor:'#FF550C', color:'white'}}>
             <div className='mx-auto'>
               <p className='size'>Appliances Deals</p>
             </div>
@@ -504,19 +504,19 @@ const Content = () => {
                 <img src={appMicro}  className='imglock' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appKettle}  className='imglock' />
+                <img src={appKettle}  className='imglock0' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appBlenders}  className='imglock' />
+                <img src={appBlenders}  className='imglock0' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appHair}  className='imglock' />
+                <img src={appHair}  className='imglock0' />
                 </div>
               </a>
             </div>
