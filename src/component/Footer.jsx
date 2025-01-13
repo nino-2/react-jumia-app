@@ -36,10 +36,11 @@ const Footer = () => {
                     <img src={email} className='mailbox' />
                     <input type='email' placeholder='Enter E-mail Address'className='fill' />
                   </div>
-                  <div className='rags'>
-                  <button className='dogs'>MALE</button>
-                  <button className='dogs1'>FEMALE</button>
-                  </div>
+                  <button className='dogs'>Subscribe</button>
+                  {/* <div className='rags'>
+                  
+                 
+                  </div> */}
                 </div>
                 <div className='noni'>
                   <input type='checkbox' className='tick' />
@@ -169,7 +170,7 @@ const Footer = () => {
                 <a href="#" className='rot'>Become a Sales Consultant</a>
               </li>
               <li>
-              <a href="#" className='rot'>BBecome a Logistics Service Partner</a>
+              <a href="#" className='rot'>Become a Logistics Service Partner</a>
               </li>
               <li>
               <a href="#" className='rot'>Join the Jumia DA Academy</a>

@@ -68,7 +68,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={appIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px', marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Appliances</span>
@@ -76,7 +76,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={mobileIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Phones & Tablets</span>
@@ -84,7 +84,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={healthIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Health & Beauty</span>
@@ -92,7 +92,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={homeIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Home & Office</span>
@@ -100,7 +100,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={tvIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Electronics</span>
@@ -108,7 +108,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={fashIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Fashion</span>
@@ -116,7 +116,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={supIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Supermarket</span>
@@ -124,7 +124,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={compIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Computing</span>
@@ -132,7 +132,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={babyIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Baby Products</span>
@@ -140,7 +140,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={gameIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Gaming</span>
@@ -151,7 +151,7 @@ const Content = () => {
               <a href="#" className='outline'>
                 <img
                   src={catIcon}
-                  style={{height: '20px'}}
+                  style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Other Categories</span>
@@ -224,25 +224,25 @@ const Content = () => {
         <div className='xxl'>
         <section className='cardth1'>
           <div className='downward'>
-          <a href="#" className='donb1'>
+          <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardTv}  className='imglock1' />
                 </div>
                 <p className='subtext'>TV & Audio Deals</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardNew}  className='imglock1' />
                 </div>
                 <p className='subtext'>New Arrival</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardClr}  className='imglock1' />
                 </div>
                 <p className='subtext'>Clearance Sale</p>
               </a>
-              <a href="#" className='donb1'>
+              <a href="#" className='donb2'>
                 <div className='lockd1'>
                 <img src={cardAppl}  className='imglock1' />
                 </div>
@@ -484,39 +484,39 @@ const Content = () => {
           </header>
           <div className='eject'>
             <div className='downward'>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
                 <img src={appAc} alt="AIR CONDITIONERS" className='imglock' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
                 <img src={appFans}  className='imglock' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
                 <img src={appFridges}  className='imglock' />
                 </div>
               </a>
-              <a href="#" className='donb'>
+              <a href="#" className='donb5'>
                 <div className='lockd'>
                 <img src={appMicro}  className='imglock' />
                 </div>
               </a>
               <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appKettle}  className='imglock0' />
+                <img src={appKettle}  className='imglock' />
                 </div>
               </a>
               <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appBlenders}  className='imglock0' />
+                <img src={appBlenders}  className='imglock' />
                 </div>
               </a>
               <a href="#" className='donb5'>
                 <div className='lockd'>
-                <img src={appHair}  className='imglock0' />
+                <img src={appHair}  className='imglock' />
                 </div>
               </a>
             </div>

@@ -8,9 +8,12 @@ import Footer from './component/Footer.jsx'
 const App = () => {
   return (
     <>
+    <div className='root'>
     <Navbar/>
     <Content/>
     <Footer/>
+    </div>
+    
     </>
    
      
