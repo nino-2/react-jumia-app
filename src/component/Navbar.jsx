@@ -4,14 +4,18 @@ import searchBar from '../assets/search.svg'
 import userHead from '../assets/account.svg'
 import helpIcon from '../assets/help.svg'
 import cartIcon from '../assets/cart.svg'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <>
+   
       <nav className='head'>
        <div className='ptd'>
         <div className='cc1'>
+          <Link to='/'>
           <img className='ff2' src={jumiaLogo} />
+          </Link>
         </div>
         <form className='cc2'> 
           <input className='space' type='search' placeholder='Search products, brands and categories'/>
@@ -47,6 +51,7 @@ const Navbar = () => {
               <li><a className='dropdown-item' href='#'>My Account</a></li>
               <li><a className='dropdown-item' href='#'>Orders</a></li>
               <li><a className='dropdown-item' href='#'>Saved Items</a></li>
+              <Link to='/about' className='dropdown-item'>About us</Link>
             </ul>
           </li>
 
@@ -71,7 +76,7 @@ const Navbar = () => {
               <li><a className='dropdown-item' href="#">Payment option</a></li>
               <li><a className='dropdown-item' href="#">Track an order</a></li>
               <li><a className='dropdown-item' href="#">Cancel an order</a></li>
-              <li><a className='dropdown-item' href="#">Returns & Refunds</a></li>
+              <li><a className='dropdown-item' href="#">Returns & Refunds</a></li>  
               <li><hr className='dropdown-divider' /></li>
               <li>
                 <a className='dropdown-item' href="#">
@@ -92,6 +97,7 @@ const Navbar = () => {
           </li>
          </ul>
        </div>
+      
      </nav>
     </>
   )

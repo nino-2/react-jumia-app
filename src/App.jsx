@@ -1,18 +1,17 @@
 import React from 'react'
-import Navbar from './component/Navbar.jsx'
-import Content from './component/Content.jsx'
-import Footer from './component/Footer.jsx'
+import { Routes,Route }  from 'react-router-dom'
+import HomeComponent from './pages/HomeComponent'
+import AboutComponent from './pages/AboutComponent'
 
 
 
 const App = () => {
   return (
     <>
-    <div className='root'>
-    <Navbar/>
-    <Content/>
-    <Footer/>
-    </div>
+     <Routes>
+       <Route path='/' element={<HomeComponent/>}/>
+       <Route path='/about' element={<AboutComponent/>}/>
+     </Routes>
     
     </>
    
