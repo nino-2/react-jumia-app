@@ -30,19 +30,19 @@ const detail = () => {
             <div className='xxl-row1'>
                 <p className='about-us'>About us</p>
                 <span>
-                    <a href="#" className='menu-title'>Our Vision</a>
+                    <Link href="#" className='menu-title'>Our Vision</Link>
                 </span>
                 <span className='seperator'></span>
                 <span>
-                    <a href="#" className='menu-title'>Jumia Today</a>
+                    <Link href="#" className='menu-title'>Jumia Today</Link>
                 </span>
                 <span className='seperator'></span>
                 <span>
-                    <a href="#" className='menu-title'>Our History</a>
+                    <Link  className='menu-title'>Our History</Link>
                 </span>
                 <span className='seperator'></span>
                 <span>
-                    <a href="#" className='menu-title'>Awards</a>
+                    <Link  className='menu-title'>Awards</Link>
                 </span>
                 <br />
                 <div className='t-line'></div>
@@ -425,10 +425,10 @@ const detail = () => {
                <br />
                <br />
                <center>
-                <a href="#" className='btn0'>Shop Now</a>
-                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Sell on Jumia</a>
-                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Affiliate Partner</a>
-                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Jforce-Sales Consultant</a>
+                <Link className='btn0'>Shop Now</Link>
+                <Link className='btn1' style={{marginLeft:'5%'}}>Sell on Jumia</Link>
+                <Link  className='btn1' style={{marginLeft:'5%'}}>Affiliate Partner</Link>
+                <Link  className='btn1' style={{marginLeft:'5%'}}>Jforce-Sales Consultant</Link>
                </center>
             </div>
             <br className='clear' />

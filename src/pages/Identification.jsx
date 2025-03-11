@@ -103,7 +103,7 @@ const Identification = () => {
                         <div className='disclaimer'>
                             <label>By continuing you agree to Jumia’s</label>
                             <br />
-                            <a className='tandc' href="">Terms and Conditions</a>
+                            <Link className='tandc'>Terms and Conditions</Link>
                         </div>
                         <div className='mydetails'>
                             <div className='facebook'>
