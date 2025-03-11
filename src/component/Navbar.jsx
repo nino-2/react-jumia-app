@@ -1,15 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import jumiaLogo from '../assets/jumia.png'
 import searchBar from '../assets/search.svg'
 import userHead from '../assets/account.svg'
 import helpIcon from '../assets/help.svg'
 import cartIcon from '../assets/cart.svg'
+import { useNavigate } from 'react-router-dom'
+import userOrder from '../assets/mybox.png'
+import userInbox from '../assets/myenvelope.png'
+import userWish from '../assets/mywish.png'
+import userVouch from '../assets/myvoucher.png'
 import { Link } from 'react-router-dom'
-
 const Navbar = () => {
+    let navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userFirstname');
+        localStorage.removeItem('tokens');
+        setFirstname('');
+
+        window.dispatchEvent(new Event("storage"));
+        
+        navigate('/');
+    }
+    const handleLogin = () => {
+      navigate('/identification')
+    }
+
+    const [firstname, setFirstname] = useState(localStorage.getItem('userFirstname') ||'')
+      useEffect(() => {
+        const updateUser = () => {
+            setFirstname(localStorage.getItem('userFirstname') || '');
+        };
+
+        window.addEventListener("storage", updateUser);
+        return () => window.removeEventListener("storage", updateUser);
+    }, []);
+
+    
   return (
     <>
-   
       <nav className='head'>
        <div className='ptd'>
         <div className='cc1'>
@@ -29,31 +59,74 @@ const Navbar = () => {
               src={userHead}
               
             />
-            <a
+              <Link
               className='nav-link text-black dropdown-toggle cc7'
-              href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <span className='contd'>Account</span>
-            </a>
+              <span className='contd'> {firstname ? ` Hi, ${firstname}` : 'Account'}</span>
+            </Link>
             <ul className='dropdown-menu kyc'>
+            { !firstname ?  (
+              <>
               <li>
-                <a className='dropdown-item' href='#'>
-                  <button className='option3'
+                 <a className='dropdown-item bg-transparent'>
+                  <button onClick={handleLogin} className=' option3'
                   >
                     SIGN IN
                   </button>
-                </a>
+                  </a>
               </li>
               <li><hr className='dropdown-divider' /></li>
-              <li><a className='dropdown-item' href='#'>My Account</a></li>
-              <li><a className='dropdown-item' href='#'>Orders</a></li>
-              <li><a className='dropdown-item' href='#'>Saved Items</a></li>
-              <Link to='/about' className='dropdown-item'>About us</Link>
-            </ul>
+              <li><Link  className='dropdown-item bg-transparent' >My Account</Link></li>
+              <li><Link  className='dropdown-item bg-transparent' >Orders</Link></li>
+              <li><Link  className='dropdown-item bg-transparent' >Saved Items</Link></li>
+               <li><Link to='/about'  className='dropdown-item bg-transparent'>About us</Link></li>
+              </>
+            
+          ): (
+            <>
+           
+            <li>
+            <Link className='dropdown-item glk350'>
+              <img src={userHead} alt="" className='c300' />
+              <span>My Account</span> 
+            </Link>
           </li>
+          <li>
+            <Link to='' className='dropdown-item glk350' href='#'>
+              <img src={userOrder} alt="" className='c300' />
+              <span>Orders</span> 
+            </Link>
+            </li>
+          <li>
+            <Link to='' className='dropdown-item glk350' href='#'>
+              <img src={userInbox} alt="" className='c300' />
+              <span>Inbox</span> 
+            </Link>
+            </li>
+          <li>
+            <Link to='' className='dropdown-item glk350' href='#'>
+              <img src={userWish} alt="" className='c300' />
+              <span>Wishlist</span> 
+            </Link>
+          </li>
+          <li>
+            <Link to='' className='dropdown-item glk350' href='#'>
+              <img src={userVouch} alt="" className='c300' />
+              <span>Voucher</span> 
+            </Link>
+          </li>
+          <li><hr className='dropdown-divider' /></li>
+          <li>
+            <button onClick={handleLogout} className='tkout' >Logout</button>
+          </li>
+          </>
+          )}
+          </ul>
+          </li> 
+         
 
           <li className='nav-item dropdown cc9'>
             <img
@@ -100,6 +173,7 @@ const Navbar = () => {
       
      </nav>
     </>
+    
   )
 }
 

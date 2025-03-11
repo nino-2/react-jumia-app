@@ -6,13 +6,28 @@ import aboutusSeven from '../assets/aboutusseven.png'
 import aboutusEight from '../assets/aboutuseight.jpg'
 import aboutusNine from '../assets/aboutusnine.jpg'
 import aboutusTen from '../assets/aboutusten.jpg'
+import mobileFirst from '../assets/vmobilefirst.jpg'
+import mobileOne from '../assets/vmobileone.png'
+import mobileTwo from '../assets/vmobiletwo.png'
+import mobileThree from '../assets/vmobilethree.png'
+import mobileFour from '../assets/vmobilefour.png'
+import mobileSix from '../assets/vmobilesix.png'
+import mobileSeven from '../assets/vmobileseven.png'
+import mobileEight from '../assets/vmobileeight.png'
+import mobileNine from '../assets/vmobilenine.png'
+import mobileTen from '../assets/vmobileten.png'
+import mobileEleven from '../assets/vmobileeleven.png'
+import mobileTwelve from '../assets/vmobiletwelve.png'
 
 const detail = () => {
   return (
     <>
       <main className='outter1'>
         <div className='inner1'>
-            <div className='xxl-row'>
+        <div className='mview1' style={{width:'100%'}}>
+             <img className='viewimg' src={mobileFirst} alt="" />
+         </div>
+            <div className='xxl-row1'>
                 <p className='about-us'>About us</p>
                 <span>
                     <a href="#" className='menu-title'>Our Vision</a>
@@ -33,14 +48,51 @@ const detail = () => {
                 <div className='t-line'></div>
             </div>
             <br className='clear' />
-            <div className='xxl-row'>
+            <div className='xxl-rowi'>
+            <p className='sb-headm'>Our Vision</p>
                 <div>
                     <img className='locate' src={aboutusOne} alt="" />
                 </div>
+                <br  className='clear'/>
                 <p className='sb-head'>Our Vision</p>
                 <p className='sb-text txt1'>We are building the most beloved and trusted shopping destination for Africans.</p>
+                
+                
+                <div className='m-row1'>
+                    <center>
+                        <img src={mobileOne} alt="" style={{width:'40%'}}/>
+                        <p className='m-text'>
+                            Access 
+                            <strong>100%</strong>
+                            Genuine products from Local 
+                            & International Vendors
+                        </p>
+                    </center>
+                </div>
+                <div className='m-row1'>
+                    <center>
+                        <img src={mobileTwo} alt="" style={{width:'40%'}} />
+                        <p className='m-text'>Search,Order on all Platforms,Pay on Delivery</p>
+                    </center>
+                </div>
+                <br className='clear' />
+                <div className='m-row1'>
+                    <center>
+                        <img src={mobileThree} alt="" style={{width:'40%'}}/>
+                        <p className='m-text'>Buy Anything You want online at the 
+                            <strong>Best Prices</strong>
+                        </p>
+                    </center>
+                </div>
+                <div className='m-row1'>
+                    <center>
+                        <img src={mobileFour} alt=""  style={{width:'40%'}}/>
+                        <p className='m-text'>Assisting Our Customers for the Best Shopping Experience</p>
+                    </center>
+                </div>
+                
             </div>
-            <div className='xxl-row'>
+            <div className='xxl-row2'>
                 <br />
                 <center>
                     <div className='aboutustwo'>
@@ -75,15 +127,77 @@ const detail = () => {
                     </div>
                 </center>
             </div>
-            <div className='xxl-row'>
+            <div className='xxl-rowm'>
+                <center>
+                    <img className src={aboutusThree}  />
+                    <div className='grey-coverm'>
+                       <p className='sb-title1m'>Jumia Today</p> 
+                       <div className='mv-row2'>
+                           
+                                <img src={mobileSix} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>6,000,000 Products</div>
+                           
+                        </div>
+                        <div className='mv-row2'>
+                           
+                                <img src={mobileSeven} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>Over 50,000 International & National Brands</div>
+                           
+                        </div>
+                        <br className='clear' />
+                        <br />
+                        <div className='mv-row2'>
+                           
+                                <img src={mobileEight} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>13 African Countries</div>
+                         
+                        </div>
+                        <div className='mv-row2'>
+                           
+                                <img src={mobileNine} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>10 Commercial Events</div>
+                          
+                        </div>
+                        <br className='clear' />
+                        <br />
+                        <div className='mv-row2'>
+                           
+                                <img src={mobileTen} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>15,000,000 Monthly Users</div>
+                          
+                        </div>
+                        <div className='mv-row2'>
+                            
+                                <img src={mobileEleven} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>#1 E-Commerce Company</div>
+                           
+                        </div>
+                        <br className='clear' />
+                        <br />
+                        <div className='mv-row2'>
+                            
+                                <img src={mobileTwelve} alt="" style={{width:'40%'}}/>
+                                <div className='mv-text'>Over 10,000 Active Vendors</div>
+                            
+
+                        </div>
+                        <br  className='clear'/>
+                        <br />
+                    </div>
+                </center>
+
+            </div>
+            <div className='xxl-row3'>
                 <br />
                 <br />
                 <center>
                     <img className src={aboutusThree}  />
                     <div className='grey-cover'>
                         <p className='sb-title1'>Jumia Today</p>
+                       
                         <p className='sm-text'>In a Nutshell</p>
                         <div className='first-bg'>
+                            
                          <p className='text1'>6,000,000 
                             <br />
                             Products</p>
@@ -176,7 +290,7 @@ const detail = () => {
                     </div>
                 </center>
             </div>
-            <div className='xxl-row'>
+            <div className='xxl-row4'>
                 <br />
                 <br />
                 <center>
@@ -227,7 +341,7 @@ const detail = () => {
                     </div>
                 </center>
             </div>
-            <div className='xxl-row'>
+            <div className='xxl-row5'>
                 <br />
                 <br />
                 <center>
@@ -266,6 +380,30 @@ const detail = () => {
                             <br />
                             <p className='txtct'>Brand Journalist Association Awards BJAN (2013)</p>
                         </div>
+                        <div className='grid4' style={{textAlign:'center'}}>
+                            <center>
+                            <img className='grid5' src={aboutusEight} alt="" />
+                            <br />
+                            <p className='grid6'>Brand Journalist Association Awards BJAN(2013)</p>
+                            </center>
+                           
+                        </div>
+                        <div className='grid4' style={{textAlign:'center'}}>
+                            <center>
+                            <img className='grid5' src={aboutusNine} alt="" />
+                            <br />
+                            <p className='grid6'>World Retail Awards 2013</p>
+                            </center>
+                            
+                        </div>
+                        <div className='grid4' style={{textAlign:'center'}}>
+                            <center>
+                            <img className='grid5' src={aboutusTen} alt="" />
+                            <br />
+                            <p className='grid6'>e-Commerce Website of the Year(Beacon of ICT Award)</p>
+                            </center>
+                           
+                        </div>
                         <div className='grid2'>
                             <img className='grid3' src={aboutusNine} alt="" />
                             <br className='clear'/>
@@ -283,14 +421,14 @@ const detail = () => {
                     </div>
                 </center>
             </div>
-            <div className='xxl-row'>
+            <div className='xxl-row6'>
                <br />
                <br />
                <center>
                 <a href="#" className='btn0'>Shop Now</a>
-                <a href="#" className='btn0' style={{marginLeft:'5%'}}>Sell on Jumia</a>
-                <a href="#" className='btn0' style={{marginLeft:'5%'}}>Affiliate Partner</a>
-                <a href="#" className='btn0' style={{marginLeft:'5%'}}>Jforce-Sales Consultant</a>
+                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Sell on Jumia</a>
+                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Affiliate Partner</a>
+                <a href="#" className='btn1' style={{marginLeft:'5%'}}>Jforce-Sales Consultant</a>
                </center>
             </div>
             <br className='clear' />

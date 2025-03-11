@@ -1,18 +1,21 @@
 import React from 'react'
 import Navbar from '../component/Navbar'
-import Detail from '../component/detail'
+import Ntfcont from '../component/ntfcont'
 import Footer from '../component/Footer'
 
 
-
-const AboutComponent = () => {
+const NotFound = () => {
   return (
     <>
+    
+
+    
       <Navbar/>
-      <Detail/>
-      <Footer/>
+      <Ntfcont/>
+      <Footer/>  
+      
     </>
   )
 }
 
-export default AboutComponent
+export default NotFound
