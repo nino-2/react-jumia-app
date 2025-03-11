@@ -1,19 +1,15 @@
 import React from 'react'
 import Navbar from '../component/Navbar'
-import Ntfcont from '../component/ntfcont'
+import Error from '../component/Error'
 import Footer from '../component/Footer'
 
 
 const NotFound = () => {
   return (
     <>
-    
-
-    
       <Navbar/>
-      <Ntfcont/>
+      <Error/>
       <Footer/>  
-      
     </>
   )
 }
