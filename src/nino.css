@@ -1836,8 +1836,6 @@ body {
   padding-bottom: 8px;
 }
 .imgdiv {
-  width: 305px;
-  height: 305px;
   padding-top: 100%;
   margin-bottom: 8px;
   display: flex;
@@ -1845,6 +1843,9 @@ body {
   overflow-y: hidden;
   justify-content: center;
   position: relative;
+}
+.pd-img {
+  cursor: zoom-in;
 }
 .slide {
   position: absolute;
@@ -1859,10 +1860,7 @@ body {
   display: flex;
   height: auto;
 }
-.pd-img {
-  /* height: 100%;
-  width: 100%; */
-}
+
 .btnt {
   display: flex;
   margin-bottom: 8px;
@@ -1872,6 +1870,8 @@ body {
   display: flex;
   justify-content: center;
   overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
 .img-pd {
@@ -2221,7 +2221,7 @@ body {
   margin-right: 8px;
 }
 .jetro {
-  margin-top: 139px;
+  margin-top: auto;
   padding: 8px;
   width: 100%;
   max-width: 100%;
@@ -2244,6 +2244,12 @@ body {
   background-color: #ffffff;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
   margin-bottom: 8px;
+  border-radius: 4px;
+}
+.outcard1 {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 }
 .pts {
   padding-top: 8px;
@@ -2296,6 +2302,22 @@ body {
   padding: 0;
   margin: 0;
 }
+.din1 {
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  color: #264996;
+  font-size: 12px;
+  margin-left: auto;
+  padding: 0;
+
+  align-self: flex-start;
+}
+.dinx {
+  text-decoration: none;
+  color: #264996;
+  margin-left: 4px;
+  padding: 0;
+}
 .cad2 {
   padding: 4px 0px;
 }
@@ -2314,6 +2336,7 @@ body {
   min-height: auto;
 }
 .sel {
+  appearance: none;
   --ac: #75757a;
   border: 1px solid #a3a3a6;
   background: linear-gradient(45deg, transparent 40%, var(--ac) 50%) no-repeat
@@ -2325,8 +2348,184 @@ body {
   padding-right: 40px;
   border-radius: 4px;
 }
-
-.outcard1 {
+.pr {
+  position: relative;
+}
+.dfpr {
+  padding: 4px 8px;
+  display: flex;
+}
+.xim {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d4d4d6;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding: 4px;
+}
+.dpr {
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.rpd {
+  display: flex;
+  width: 100%;
+}
+.xpd {
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 8px;
+  margin: 0;
+}
+.mxp {
+  padding-top: 4px;
+  font-size: 12px;
+}
+.ptag1 {
+  font-weight: 500;
+  margin: 0px 1px;
+  font-style: normal;
+}
+.cad3 {
+  padding: 8px;
+  display: flex;
+  position: relative;
+}
+.xmi {
+  display: flex;
+  flex-direction: column;
+}
+.xpdb {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+.xmis {
+  font-size: 12px;
+  padding-top: 4px;
+}
+.rjd {
+  padding: 8px;
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+.slr {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+.slrx {
+  margin-left: auto;
+  height: 24px;
+}
+.hr-pas {
+  padding: 8px;
+  position: relative;
+}
+.t-pas {
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 8px;
+  margin: 0;
+}
+.j-bet {
+  display: flex;
+  padding: 0;
+  align-content: center;
+  justify-content: space-between;
+}
+.df-bet {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-right: 8px;
+}
+.sm-bet {
+  font-weight: 500;
+  padding-right: 4px;
+}
+.ovr {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+.-mm {
+  font-weight: 500;
+  margin-right: 4px;
+}
+.frm {
+  align-self: flex-end;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+.rdbt {
+  background-color: #f68b1e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  line-height: 16px;
+  position: relative;
+}
+.cls {
+  font-size: 12px;
+  font-weight: 500;
+}
+.sl-cls {
+  box-shadow: 0 0 0 1px #f68b1e;
+  background-color: transparent;
+  padding: 8px 16px;
+  color: #f68b1e;
+  border: none;
+  border-radius: 4px;
+  line-height: 16px;
+}
+.lr-pas {
+  border-top: 1px solid #f1f1f2;
+  padding: 8px;
+}
+.tr-pas {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+.i-pas {
+  background-color: transparent;
+  margin-left: 4px;
+  border: none;
+  padding: 0px 4px;
+  margin: 0;
+}
+.mg-pas {
+  height: 20px;
+  margin: 2px;
+}
+.i-das {
+  display: flex;
+  padding-top: 8px;
+  align-items: center;
+}
+.midas {
+  display: flex;
+  background-color: #6dbd28;
+  margin-right: 8px;
+  border-radius: 50%;
+  align-items: center;
+}
+.gstar {
+  height: 12px;
+  margin: 2px;
+}
+.clx {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
 }
 
 @media (min-width: 1200px) {

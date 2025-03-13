@@ -18,6 +18,7 @@ import mobileNine from '../assets/vmobilenine.png'
 import mobileTen from '../assets/vmobileten.png'
 import mobileEleven from '../assets/vmobileeleven.png'
 import mobileTwelve from '../assets/vmobiletwelve.png'
+import { Link } from 'react-router-dom'
 
 const detail = () => {
   return (

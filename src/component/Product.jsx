@@ -13,6 +13,11 @@ import iconFlash from '../assets/iconflash.png'
 import myCart from '../assets/mycart.png'
 import jumiaLog from '../assets/myjumia-top-logo.png'
 import jmiaEx from '../assets/jumia-express.png'
+import picProd from '../assets/pickprod.png'
+import devProd from '../assets/deliverprod.png'
+import retProd from '../assets/returnprod.png'
+import sInfo from '../assets/infoid.png'
+import wStar from '../assets/wstar.png'
 import axios from 'axios'
 
 const Product = ({rating}) => {
@@ -20,7 +25,7 @@ const Product = ({rating}) => {
   const [cities, setCities] = useState([])
   const [selectedstate, setSelectedState] = useState('')
   const [selectedcity, setSelectedCity] = useState('')
-
+  const [mainimage, setMainimage] = useState('')
 
   useEffect(() => {
     axios.get('http://localhost:5001/api/states')
@@ -56,9 +61,12 @@ const Product = ({rating}) => {
   
   const ratingPercentage = (rating / 5) * 100;
   const [liked, setLiked] = useState(false)
-
+  const [follow, setFollow] = useState(false)
   const handleLike = () => {
     setLiked(!liked)
+  }
+  const handleflow = () => {
+    setFollow(!follow)
   }
   return (
     <>
@@ -305,7 +313,7 @@ const Product = ({rating}) => {
                   <div className='dtx'>
                     <div className='fiwner'>
                       <select className='sel'  onChange={handleStateChange} value={selectedstate}>
-                      {/* <option value="disabled" disabled>Please Select</option> */}
+                      <option  disabled>Please Select</option>
                         {states.map((state) => (
                           <option key={state.id} value={state.name}>{state.name}</option>
                         ))}
@@ -322,13 +330,158 @@ const Product = ({rating}) => {
                  
                   </div>
                     
-                  <section></section>
+                  <section className='pr'>
+                    <div>
+                      <article className='dfpr'>
+                         <img className='xim' src={picProd} alt="" />
+                         <div className='dpr'>
+                            <div className='rpd'>
+                              <p className='xpd'>Pickup Station</p>
+                              <button className='din1'>Details</button>
+                            </div>
+                            <div>
+                              <div className='mxp'>
+                                Delivery Fees
+                                <span className='ptag'>&#8358;3,500</span>
+                              </div>
+                              <div className='mxp'>
+                                Ready for pickup between
+                                <span className='ptag1'>14 March</span>
+                                 and 
+                                <span className='ptag1'>18 March</span> 
+                                if you place your order within
+                                the next
+                                 <span className='ptag1'>3hrs 47mins</span>
+                                
+                              </div>
+                            </div>
+                         </div>
+                      </article>
+                      <article className='dfpr'>
+                         <img className='xim' src={devProd} alt="" />
+                         <div className='dpr'>
+                            <div className='rpd'>
+                              <p className='xpd'>Door Delivery</p>
+                              <button className='din1'>Details</button>
+                            </div>
+                            <div>
+                              <div className='mxp'>
+                                Delivery Fees
+                                <span className='ptag'>&#8358;4,519</span>
+                              </div>
+                              <div className='mxp'>
+                                Ready for pickup between
+                                <span className='ptag1'>14 March</span>
+                                 and 
+                                <span className='ptag1'>18 March</span> 
+                                if you place your order within
+                                the next
+                                 <span className='ptag1'>3hrs 47mins</span>
+                                
+                              </div>
+                            </div>
+                         </div>
+                      </article>
+                    </div>
+                  </section>
                 </article>
-                <article className='cad3'></article>
+                <article className='cad3'>
+                  <hr className='rule1'/>
+                  <img className='xim' src={retProd} alt="" />
+                  <div className='xmi'>
+                    <p className='xpdb'>
+                      Return Policy
+                    </p>
+                    <p className='xmis'>
+                      Free return within 7 days for ALL eligble items 
+                      <Link className='dinx'>Details</Link>
+                    </p>
+                  </div>
+                </article>
               </div>
             </section>
             <div className='pts'>
-              <section className='outcard1'></section>
+              <section className='outcard1'>
+                <Link className='rjd'>
+                  <p className='slr'>SELLER INFORMATION</p>
+                  <img className='slrx' src={afTer} alt="" />
+                </Link>
+                <div className='hr-pas'>
+                  <hr className='rule13' />
+                  <p className='t-pas'>Zeemak Ltd 2 - AC</p>
+                  <div className='j-bet'>
+                    <div className='df-bet'>
+                      <p className='ovr'>
+                        <bdo className='sm-bet' dir="ltr">88%</bdo>
+                        Seller Score
+                      </p>
+                      <p className='ovr'>
+                        <span className='-mm'>979</span>
+                        <span>Followers</span>
+                      </p>
+                    </div>
+                    <form className='frm'>
+                      <input type="hidden" />
+                      { follow ? (
+                         <button onClick={handleflow} className='sl-cls'>
+                         <span className='cls'>Following</span>
+                      </button>  
+                      ) : (
+                        <button onClick={handleflow} className='rdbt'>
+                        <span className='cls'>Follow</span>
+                       </button>
+                      )
+                    }
+                     
+                      
+                    </form>
+                  </div>
+                </div>
+                <div className='lr-pas'>
+                  <h3 className='tr-pas'>
+                    Seller Performance 
+                    <button className='i-pas'>
+                      <img className='mg-pas' src={sInfo} alt="" />
+                    </button>
+                  </h3>
+                  <div className='i-das'>
+                    <span className='midas'>
+                      <img className='gstar' src={wStar} alt="" />
+                    </span>
+                    <p className='clx'>
+                      Shipping speed: &nbsp;
+                      <span className='-mm'>
+                        Excellent
+                      </span>
+                    </p>
+                    
+                  </div>
+                  <div className='i-das'>
+                    <span className='midas'>
+                      <img className='gstar' src={wStar} alt="" />
+                    </span>
+                    <p className='clx'>
+                      Quality Score: &nbsp;
+                      <span className='-mm'>
+                        Good
+                      </span>
+                    </p>
+                    
+                  </div>
+                  <div className='i-das'>
+                    <span className='midas'>
+                      <img className='gstar' src={wStar} alt="" />
+                    </span>
+                    <p className='clx'>
+                      Customer rating: &nbsp;
+                      <span className='-mm'>
+                        Good
+                      </span>
+                    </p>
+                    
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
