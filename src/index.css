@@ -402,6 +402,36 @@ body {
   position: relative;
   display: flex;
 }
+.navbar-action {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: #313133;
+  display: inline-flex;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-action:hover {
+  color: #f68b1e;
+}
+
+.navbar-action .c00,
+.navbar-action .c6 {
+  flex-shrink: 0;
+  position: static;
+}
+
+.cc4 .dropdown-menu.show,
+.cc9 .dropdown-menu.show {
+  display: block;
+  left: auto;
+  right: 0;
+  top: calc(100% + 8px);
+}
 .c6 {
   position: absolute;
   top: 0px;
@@ -3430,6 +3460,44 @@ body {
   color: #75757a;
   font-size: 14px;
 }
+
+@media (max-width: 950px) {
+  .lnp {
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .customer-menu-toggle {
+    align-self: flex-start;
+    background-color: #fff;
+    border: 1px solid #f68b1e;
+    border-radius: 4px;
+    color: #f68b1e;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+  }
+
+  .lnp > .side-card {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .lnp > .outter-card {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .s-menu {
+    width: 100%;
+  }
+}
+
 p {
   margin: 0;
 }
@@ -4915,13 +4983,15 @@ p {
   }
 
   .head {
-    height: 64px;
+    height: auto;
   }
 
   .ptd {
-    height: 64px;
+    align-content: center;
+    flex-wrap: wrap;
+    height: auto;
     margin: 0;
-    padding: 12px 10px;
+    padding: 10px;
     gap: 8px;
   }
 
@@ -4933,21 +5003,23 @@ p {
   }
 
   .cc2 {
-    width: 32px;
-    min-width: 32px;
+    order: 3;
+    width: 100%;
+    min-width: 100%;
     padding: 0;
-    flex: 0 0 32px;
+    flex: 0 0 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: stretch;
+    position: relative;
   }
 
   .cc3 {
     width: auto;
-    min-width: 88px;
-    max-width: 112px;
-    height: 32px;
-    gap: 14px;
+    min-width: auto;
+    max-width: none;
+    height: 34px;
+    gap: 12px;
     padding: 0;
     align-items: center;
     justify-content: flex-end;
@@ -4955,15 +5027,21 @@ p {
 
   .cc4,
   .cc9 {
-    min-width: 24px;
-    height: 32px;
+    display: flex;
+    min-width: 28px;
+    height: 34px;
     align-items: center;
     justify-content: center;
   }
 
+  .navbar-action {
+    min-height: 34px;
+    min-width: 28px;
+    justify-content: center;
+  }
+
   .c00,
-  .c6,
-  .search-icon {
+  .c6 {
     position: static;
     display: block;
     width: 22px;
@@ -4972,6 +5050,51 @@ p {
     right: auto;
     top: auto;
     margin: 0;
+  }
+
+  .search-icon {
+    display: block;
+    height: 20px;
+    left: 12px;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    width: 20px;
+    z-index: 1;
+  }
+
+  .space {
+    display: block;
+    flex: 1;
+    height: 40px;
+    margin: 0;
+    max-width: none;
+    min-width: 0;
+    padding-left: 40px;
+    padding-right: 12px;
+    width: 100%;
+  }
+
+  .option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-left: 8px;
+    width: 78px;
+  }
+
+  .cc4 .dropdown-menu.show,
+  .cc9 .dropdown-menu.show {
+    min-width: 220px;
+    position: absolute;
+    right: -12px;
+    top: calc(100% + 10px);
+    z-index: 1200;
+  }
+
+  .cc3 > .cc4:last-child .dropdown-menu.show {
+    right: 0;
   }
 
   .dropdown-toggle::after {

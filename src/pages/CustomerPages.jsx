@@ -10,14 +10,15 @@ const CustomerPages = () => {
    
    const {setCartcount, clearCart} = useCart()
    const [firstname, setFirstname] = useState(localStorage.getItem('userFirstname') ||'')
-   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+   const customerMenuBreakpoint = 950
+   const [isMobile, setIsMobile] = useState(window.innerWidth <= customerMenuBreakpoint)
    const [menuOpen, setMenuOpen] = useState(false)
    let navigate = useNavigate()
    const location = useLocation();
     const showBackButton = false
 
     useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth <= 768)
+      const handleResize = () => setIsMobile(window.innerWidth <= customerMenuBreakpoint)
       window.addEventListener('resize', handleResize)
       return () => window.removeEventListener('resize', handleResize)
     }, [])

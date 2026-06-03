@@ -13,6 +13,7 @@ const Navbar = () => {
     const {cartcount, setCartcount, clearCart} = useCart()
     const {firstname, isLoggedIn, loading, handleLogout} = useAuth()
     const [searchTerm, setSearchTerm] = useState('')
+    const [openMenu, setOpenMenu] = useState(null)
 
     let navigate = useNavigate()
 
@@ -20,11 +21,13 @@ const Navbar = () => {
        await handleLogout()
         clearCart();
         setCartcount(0);
+        setOpenMenu(null)
 
         
         navigate('/');
     }
     const handleLogin = () => {
+      setOpenMenu(null)
       navigate('/identification')
     }
 
@@ -37,6 +40,10 @@ const Navbar = () => {
       } else {
         navigate('/')
       }
+    }
+
+    const toggleMenu = (menu) => {
+      setOpenMenu((currentMenu) => currentMenu === menu ? null : menu)
     }
 
     
@@ -88,20 +95,21 @@ const Navbar = () => {
         {/*Account Section*/}
         <ul className='cc3'>
           <li className='nav-item dropdown cc4'>
-            <img
-              className='c00'
-              src="/account.svg"
-              
-            />
-              <Link
-              className='nav-link text-black dropdown-toggle cc7'
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              <button
+              type='button'
+              className='navbar-action dropdown-toggle cc7'
+              aria-expanded={openMenu === 'account'}
+              aria-label='Account menu'
+              onClick={() => toggleMenu('account')}
             >
+              <img
+                className='c00'
+                src="/account.svg"
+                alt=""
+              />
               <span className='contd'> {isLoggedIn ? ` Hi, ${firstname}` : 'Account'}</span>
-            </Link>
-            <ul className='dropdown-menu kyc'>
+            </button>
+            <ul className={`dropdown-menu kyc ${openMenu === 'account' ? 'show' : ''}`} onClick={() => setOpenMenu(null)}>
             { !isLoggedIn ?  (
               <>
               <li>
@@ -163,21 +171,21 @@ const Navbar = () => {
          
            {/*Help Section*/}
           <li className='nav-item dropdown cc9'>
-            <img
-              className='c6'
-              src="/help.svg"
-              
-            />
-            <a
-              className="nav-link text-black dropdown-toggle c67"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+            <button
+              type='button'
+              className="navbar-action dropdown-toggle c67"
+              aria-expanded={openMenu === 'help'}
+              aria-label='Help menu'
+              onClick={() => toggleMenu('help')}
             >
+              <img
+                className='c6'
+                src="/help.svg"
+                alt=""
+              />
               <span className='contd'> Help</span>
-            </a>
-            <ul className='dropdown-menu kyc'>
+            </button>
+            <ul className={`dropdown-menu kyc ${openMenu === 'help' ? 'show' : ''}`} onClick={() => setOpenMenu(null)}>
               <li>
                 <Link className='dropdown-item'>Help center</Link>
               </li>
@@ -205,11 +213,12 @@ const Navbar = () => {
             </ul>
           </li>
           {/*Cart Section*/}
-          <Link to='/cart' className='nav-link active text-black' aria-current="page">
           <li className='nav-item cc4'>
+          <Link to='/cart' className='navbar-action nav-link active text-black' aria-current="page" aria-label='Cart' onClick={() => setOpenMenu(null)}>
             <img
               className='c6'
               src="/cart.svg"
+              alt=""
             />
            {
             cartcount > 0 &&
@@ -218,8 +227,8 @@ const Navbar = () => {
            
               <span className='contd'>Cart</span>
               
-              </li>
             </Link>
+              </li>
          </ul>
        </div>
       

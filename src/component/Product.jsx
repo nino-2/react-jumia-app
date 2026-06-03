@@ -480,11 +480,11 @@ const Product = ({rating}) => {
                     <form className='frm'>
                       <input type="hidden" />
                       { follow ? (
-                         <button onClick={handleflow} className='sl-cls'>
+                         <button type='button' onClick={handleflow} className='sl-cls'>
                          <span className='cls'>Following</span>
                       </button>  
                       ) : (
-                        <button onClick={handleflow} className='rdbt'>
+                        <button type='button' onClick={handleflow} className='rdbt'>
                         <span className='cls'>Follow</span>
                        </button>
                       )
