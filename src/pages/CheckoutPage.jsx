@@ -67,6 +67,10 @@ const CheckoutPage = () => {
           order: res.data.order,
         })
         clearCart()
+        navigate('/customer/order', {
+          replace: true,
+          state: { orderId: res.data.order?._id },
+        })
       } catch (err) {
         setError(
           err.response?.data?.message ||

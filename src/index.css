@@ -3588,12 +3588,17 @@ p {
   padding: 0px 16px;
   height: 48px;
   border-bottom: 2px solid transparent;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
   text-decoration: none;
   display: flex;
   align-items: center;
   color: #75757a;
   font-size: 14px;
   font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
 }
 .ord-sel.active {
   border-bottom: 2px solid #f68b1e;
@@ -3624,6 +3629,81 @@ p {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
+}
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
+.order-card {
+  border-top: 1px solid #f1f1f2;
+  padding: 16px 8px;
+}
+.order-card-highlight {
+  box-shadow: inset 3px 0 0 #f68b1e;
+}
+.order-card-head,
+.order-card-foot {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+.order-number {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+.order-date,
+.order-item-meta,
+.order-card-foot {
+  color: #75757a;
+  font-size: 13px;
+}
+.order-status {
+  color: #4d861c;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+}
+.order-item {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+}
+.order-item-img {
+  border-radius: 4px;
+  flex-shrink: 0;
+  height: 56px;
+  object-fit: contain;
+  width: 56px;
+}
+.order-item-info {
+  min-width: 0;
+}
+.order-item-name {
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-card-foot {
+  border-top: 1px solid #f1f1f2;
+  padding-top: 12px;
+}
+.order-card-foot strong {
+  color: #313133;
+  font-size: 16px;
 }
 .news-cont {
   padding: 16px;
@@ -5347,6 +5427,24 @@ p {
     max-width: 320px;
     margin: 0 auto;
     overflow-wrap: anywhere;
+  }
+
+  .orders-list {
+    padding: 8px 0;
+  }
+
+  .order-card {
+    padding: 14px 8px;
+  }
+
+  .order-card-head,
+  .order-card-foot {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .order-item-name {
+    white-space: normal;
   }
 
   .pbm {
