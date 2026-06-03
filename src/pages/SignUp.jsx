@@ -2,16 +2,12 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useFormik } from 'formik'
 import  *as yup  from 'yup'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import jumiaLogo from '../assets/jumia.png'
-import hideIcon from '../assets/crosseye.png'
-import showIcon from '../assets/eyepass.png'
 import { useNavigate } from 'react-router-dom'
 
 
 const SignUp = () => {
   let navigate = useNavigate()
-   let url = 'http://localhost:5001/user/register'
+   const API_URL = import.meta.env.VITE_API_URL
    
    const [message, setMessage] = useState('')
    const [showpassword, setShowpassword] = useState(false)
@@ -23,7 +19,7 @@ const SignUp = () => {
         },
         onSubmit: (values) => {
             console.log(values)
-            axios.post(url,values, {
+            axios.post(`${API_URL}/user/register`,values, {
               headers: {
                 'Content-Type': 'application/json'
               }
@@ -61,7 +57,7 @@ const SignUp = () => {
             <div className='container1'>
                 <div className='top-bar'></div>
                 <div className='content'>
-                     <img src={jumiaLog} alt="" className='logo1' />
+                     <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                 </div>
                 <div className='mycontext'>
                  <form  onSubmit={formik.handleSubmit}>
@@ -85,7 +81,7 @@ const SignUp = () => {
                       <div className="form-floating mb-3 round">
                         <input type={showpassword ? "text" : "password"}  name='password' className={formik.errors.password&& formik.touched.password ? "form-control my-2 my-lg-2 is-invalid" : "form-control my-2 my-lg-2" }  placeholder="password" onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                         <label htmlFor="floatingPassword">Password</label>
-                         <img src={showpassword ? showIcon : hideIcon} alt="Toggle Password"
+                         <img src={showpassword ? "/eyepass.png" : "/crosseye.png"} alt="Toggle Password"
                           className="eyeicon"
                           onClick={() => setShowpassword(!showpassword)} />
                       </div>
@@ -96,7 +92,7 @@ const SignUp = () => {
                         <input type={showpassword ? "text" : "password"}  name='confirmPassword' className={formik.errors.confirmPassword&& formik.touched.confirmPassword ? "form-control my-2 my-lg-2 is-invalid" : "form-control my-2 my-lg-2" } placeholder="confirmPassword" onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                        
                         <label htmlFor="floatingconfirmPassword">Confirm Password</label>
-                        <img src={showpassword ? showIcon : hideIcon} alt="Toggle Password"
+                        <img src={showpassword ? "/eyepass.png" : "/crosseye.png"} alt="Toggle Password"
                           className="eyeicon"
                           onClick={() => setShowpassword(!showpassword)} />
                       </div>
@@ -112,7 +108,7 @@ const SignUp = () => {
                     For further support, you may visit the Help Center or contact our customer service team.
                 </div>
                 <div className='footer-logo'>
-                 <img src={jumiaLogo} alt="" className='footer-img' />
+                 <img src="/jumia.png" alt="" className='footer-img' />
                 </div>
             </div>
         </div>

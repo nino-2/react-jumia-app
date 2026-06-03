@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import jumiaLogo from '../assets/jumia.png'
 import { useFormik } from 'formik';
 import  *as yup  from 'yup'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const VerifyPass = () => {
-    let url = 'http://localhost:5001/user/verify'
+    const API_URL = import.meta.env.VITE_API_URL
+    let url = `${API_URL}/user/verify`
     let navigate = useNavigate()
     const location = useLocation()
     
@@ -27,7 +26,10 @@ const VerifyPass = () => {
       }
     }, [timer])
     const handleNewcode = () => {
-        axios.post('http://localhost:5001/user/request',{email: emailFromUrl})
+        setMessage('Requesting a new code...');
+        axios.post(`${API_URL}/user/request`,{email: emailFromUrl}, {
+            headers: { 'Content-Type': 'application/json' }
+        })
         .then((response)=> {
             setMessage(response.data.message)
             setTimer(60)
@@ -102,7 +104,7 @@ const VerifyPass = () => {
                 <div className='container1'>
                     <div className='top-bar'></div>
                     <div className='content'>
-                        <img src={jumiaLog} alt="" className='logo1' />
+                        <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                     </div>
                     <div className='mycontext1'>
                     <form onSubmit={formik.handleSubmit}>
@@ -143,7 +145,7 @@ const VerifyPass = () => {
                         For further support, you may visit the Help Center or contact our customer service team.
                     </div>
                     <div className='footer-logo'>
-                    <img src={jumiaLogo} alt="" className='footer-img' />
+                    <img src="/jumia.png" alt="" className='footer-img' />
                     </div>
                 </div>
             </div>

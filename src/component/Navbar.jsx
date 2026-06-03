@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import jumiaLogo from '../assets/jumia.png'
-import searchBar from '../assets/search.svg'
-import userHead from '../assets/account.svg'
-import helpIcon from '../assets/help.svg'
-import cartIcon from '../assets/cart.svg'
 import { useNavigate } from 'react-router-dom'
-import userOrder from '../assets/mybox.png'
-import userInbox from '../assets/myenvelope.png'
-import userWish from '../assets/mywish.png'
-import userVouch from '../assets/myvoucher.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useCart } from '../../Context/CartContext'
+import { useAuth } from '../../Context/AuthContext'
+
+
 const Navbar = () => {
+    
+   const API_URL = import.meta.env.VITE_API_URL;
+
+    const {cartcount, setCartcount, clearCart} = useCart()
+    const {firstname, isLoggedIn, loading, handleLogout} = useAuth()
+    const [searchTerm, setSearchTerm] = useState('')
+
     let navigate = useNavigate()
 
-    const handleLogout = () => {
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userFirstname');
-        localStorage.removeItem('tokens');
-        setFirstname('');
+    const handleClickLogout = async() => {
+       await handleLogout()
+        clearCart();
+        setCartcount(0);
 
-        window.dispatchEvent(new Event("storage"));
         
         navigate('/');
     }
@@ -27,36 +28,69 @@ const Navbar = () => {
       navigate('/identification')
     }
 
-    const [firstname, setFirstname] = useState(localStorage.getItem('userFirstname') ||'')
+    const handleSearch = (event) => {
+      event.preventDefault()
+      const query = searchTerm.trim()
+
+      if (query) {
+        navigate(`/?search=${encodeURIComponent(query)}`)
+      } else {
+        navigate('/')
+      }
+    }
+
+    
+     
+      
       useEffect(() => {
-        const updateUser = () => {
-            setFirstname(localStorage.getItem('userFirstname') || '');
-        };
+        const token = localStorage.getItem('token')
+        if (token) {
+          axios.get(`${API_URL}/cart/`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+          .then((response) => setCartcount(response.data.cart?.length || 0))
+          .catch((error)=>console.log(error))
+        }
+        
+      }, [])
 
-        window.addEventListener("storage", updateUser);
-        return () => window.removeEventListener("storage", updateUser);
-    }, []);
+      
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
+      
     
   return (
     <>
       <nav className='head'>
        <div className='ptd'>
+        {/*Jumia Logo*/}
         <div className='cc1'>
           <Link to='/'>
-          <img className='ff2' src={jumiaLogo} />
+          <img className='ff2' src="/jumia.png" />
           </Link>
         </div>
-        <form className='cc2'> 
-          <input className='space' type='search' placeholder='Search products, brands and categories'/>
-          <img className='search-icon' src={searchBar}  />
+        {/*Search Button*/}
+        <form className='cc2' onSubmit={handleSearch}> 
+          <input
+            className='space'
+            type='search'
+            placeholder='Search products, brands and categories'
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <img className='search-icon' src="/search.svg"  />
           <button className='option'>SEARCH</button>
         </form>
+        {/*Account Section*/}
         <ul className='cc3'>
           <li className='nav-item dropdown cc4'>
             <img
               className='c00'
-              src={userHead}
+              src="/account.svg"
               
             />
               <Link
@@ -65,10 +99,10 @@ const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <span className='contd'> {firstname ? ` Hi, ${firstname}` : 'Account'}</span>
+              <span className='contd'> {isLoggedIn ? ` Hi, ${firstname}` : 'Account'}</span>
             </Link>
             <ul className='dropdown-menu kyc'>
-            { !firstname ?  (
+            { !isLoggedIn ?  (
               <>
               <li>
                  <a className='dropdown-item bg-transparent'>
@@ -89,49 +123,49 @@ const Navbar = () => {
             <>
            
             <li>
-            <Link className='dropdown-item glk350'>
-              <img src={userHead} alt="" className='c300' />
+            <Link to='/customer/account' className='dropdown-item glk350'>
+              <img src="/account.svg" alt="" className='c300' />
               <span>My Account</span> 
             </Link>
           </li>
           <li>
-            <Link to='' className='dropdown-item glk350' href='#'>
-              <img src={userOrder} alt="" className='c300' />
+            <Link to='/customer/order' className='dropdown-item glk350' href='#'>
+              <img src="/mybox.png" alt="" className='c300' />
               <span>Orders</span> 
             </Link>
             </li>
           <li>
-            <Link to='' className='dropdown-item glk350' href='#'>
-              <img src={userInbox} alt="" className='c300' />
+            <Link to='/customer/inbox' className='dropdown-item glk350' href='#'>
+              <img src="/myenvelope.png" alt="" className='c300' />
               <span>Inbox</span> 
             </Link>
             </li>
           <li>
-            <Link to='' className='dropdown-item glk350' href='#'>
-              <img src={userWish} alt="" className='c300' />
+            <Link to='/customer/wishlist' className='dropdown-item glk350' href='#'>
+              <img src="/mywish.png" alt="" className='c300' />
               <span>Wishlist</span> 
             </Link>
           </li>
-          <li>
-            <Link to='' className='dropdown-item glk350' href='#'>
-              <img src={userVouch} alt="" className='c300' />
+          <li className=''>
+            <Link to='/customer/voucher' className='item-link glk350' href='#'>
+              <img src="/myvoucher.png" alt="" className='c300' />
               <span>Voucher</span> 
             </Link>
           </li>
           <li><hr className='dropdown-divider' /></li>
-          <li>
-            <button onClick={handleLogout} className='tkout' >Logout</button>
+          <li className='handle-btn'>
+            <button onClick={handleClickLogout} className='tkout' >Logout</button>
           </li>
           </>
           )}
           </ul>
           </li> 
          
-
+           {/*Help Section*/}
           <li className='nav-item dropdown cc9'>
             <img
               className='c6'
-              src={helpIcon}
+              src="/help.svg"
               
             />
             <a
@@ -144,30 +178,48 @@ const Navbar = () => {
               <span className='contd'> Help</span>
             </a>
             <ul className='dropdown-menu kyc'>
-              <li><a className='dropdown-item' href="#">Help center</a></li>
-              <li><a className='dropdown-item' href="#">Place an order</a></li>
-              <li><a className='dropdown-item' href="#">Payment option</a></li>
-              <li><a className='dropdown-item' href="#">Track an order</a></li>
-              <li><a className='dropdown-item' href="#">Cancel an order</a></li>
-              <li><a className='dropdown-item' href="#">Returns & Refunds</a></li>  
+              <li>
+                <Link className='dropdown-item'>Help center</Link>
+              </li>
+              <li>
+                <Link className='dropdown-item'>Place an order</Link>
+              </li>
+              <li>
+                <Link className='dropdown-item'>Payment option</Link>
+              </li>
+              <li>
+                <Link className='dropdown-item'>Track an order</Link>
+              </li>
+              <li>
+                <Link className='dropdown-item'>Cancel an order</Link>
+              </li>
+              <li>
+                <Link className='dropdown-item'>Returns & Refunds</Link>
+              </li>  
               <li><hr className='dropdown-divider' /></li>
               <li>
-                <a className='dropdown-item' href="#">
+                <Link className='dropdown-item'>
                   <button className='option2'>LIVE CHAT</button>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
-
+          {/*Cart Section*/}
+          <Link to='/cart' className='nav-link active text-black' aria-current="page">
           <li className='nav-item cc4'>
             <img
               className='c6'
-              src={cartIcon}
+              src="/cart.svg"
             />
-            <a className='nav-link active text-black' aria-current="page" href="#">
+           {
+            cartcount > 0 &&
+            <div className='cart-count'>{cartcount}</div>
+           }
+           
               <span className='contd'>Cart</span>
-            </a>
-          </li>
+              
+              </li>
+            </Link>
          </ul>
        </div>
       

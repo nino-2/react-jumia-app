@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useFormik } from 'formik'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import jumiaLogo from '../assets/jumia.png'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const RequestPass = () => {
     let navigate = useNavigate();
-    let url = 'http://localhost:5001/user/request'
+    const API_URL = import.meta.env.VITE_API_URL
+    let url = `${API_URL}/user/request`
     const location = useLocation();
     const [message, setMessage] = useState('')
     const queryParams = new URLSearchParams(location.search);
@@ -41,7 +40,7 @@ const RequestPass = () => {
                    <div className='container1'>
                        <div className='top-bar'></div>
                        <div className='content'>
-                            <img src={jumiaLog} alt="" className='logo1' />
+                            <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                        </div>
                        <div className='mycontext1'>
                         <form onSubmit={formik.handleSubmit}>
@@ -66,7 +65,7 @@ const RequestPass = () => {
                            For further support, you may visit the Help Center or contact our customer service team.
                        </div>
                        <div className='footer-logo'>
-                        <img src={jumiaLogo} alt="" className='footer-img' />
+                        <img src="/jumia.png" alt="" className='footer-img' />
                        </div>
                    </div>
                </div>

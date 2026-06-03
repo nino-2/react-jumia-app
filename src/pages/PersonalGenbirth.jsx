@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useFormik } from 'formik'
 import  *as yup  from 'yup'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import jumiaLogo from '../assets/jumia.png'
 import { useNavigate } from 'react-router-dom'
 
 const PersonalGenbirth = () => {
     let navigate = useNavigate()
     let email = localStorage.getItem("userEmail")
-     let url = 'http://localhost:5001/user/updated'
+    const API_URL = import.meta.env.VITE_API_URL
+     let url = `${API_URL}/user/updated`
     const [agreed, setAgreed] = useState(false)
     const handleCheckboxChange = (event) => {
         setAgreed(event.target.checked);
@@ -32,7 +31,7 @@ const PersonalGenbirth = () => {
             .then((response)=>{
               console.log(response);
               if(response.data.status) {
-                navigate('/')
+                navigate('/signin')
               } else{
                   setMessage(response.data.message)
               }
@@ -53,7 +52,7 @@ const PersonalGenbirth = () => {
                     <div className='container1'>
                         <div className='top-bar'></div>
                         <div className='content'>
-                            <img src={jumiaLog} alt="" className='logo1' />
+                            <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                         </div>
                         <div className='mycontext1'>
                         <form action="" onSubmit={formik.handleSubmit}>
@@ -94,7 +93,7 @@ const PersonalGenbirth = () => {
                             For further support, you may visit the Help Center or contact our customer service team.
                         </div>
                         <div className='footer-logo'>
-                        <img src={jumiaLogo} alt="" className='footer-img' />
+                        <img src="/jumia.png" alt="" className='footer-img' />
                         </div>
                     </div>
                 </div>

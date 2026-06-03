@@ -8,7 +8,7 @@ import Footer from '../component/Footer'
 
 
 const HomeComponent = () => {
-  // let url = 'http://localhost:5001/user/dash'
+  // Dashboard API call placeholder
   // let navigate = useNavigate()
   // useEffect(() => {
   //   axios.get(url, {

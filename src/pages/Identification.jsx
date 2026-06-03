@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import fbLog from '../assets/fblogo.png'
-import jumiaLogo from '../assets/jumia.png'
 import { useFormik } from 'formik'
 import  *as yup  from 'yup'
 import { signInWithPopup, FacebookAuthProvider } from 'firebase/auth'
 import { auth } from '../../firebase'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 
 const Identification = () => {
     let navigate = useNavigate()
-    let url = 'http://localhost:5001/user/check'
+    const API_URL = import.meta.env.VITE_API_URL
+    let url = `${API_URL}/user/check`
 
     const [message, setMessage] = useState('')
     const LoginWith = () => {
@@ -81,7 +79,7 @@ const Identification = () => {
                 <div className='container1'>
                     <div className='top-bar'></div>
                     <div className='content'>
-                    <img src={jumiaLog} alt="" className='logo1' />
+                    <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                     </div>
                     <div className='mycontext'>
                         <form onSubmit={formik.handleSubmit}>
@@ -107,7 +105,7 @@ const Identification = () => {
                         </div>
                         <div className='mydetails'>
                             <div className='facebook'>
-                            <img src={fbLog} alt="" className='fbsocial' />
+                            <img src="/fblogo.png" alt="" className='fbsocial' />
                             <button onClick={LoginWith} className='socials'>Log in with Facebook</button>
                             </div>
                             
@@ -119,7 +117,7 @@ const Identification = () => {
                     For further support, you may visit the Help Center or contact our customer service team.
                     </div>
                     <div className='footer-logo'>
-                        <img src={jumiaLogo} alt="" className='footer-img' />
+                        <img src="/jumia.png" alt="" className='footer-img' />
                     </div>
                 </div>
             </div>

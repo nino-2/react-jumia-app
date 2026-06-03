@@ -1,161 +1,168 @@
-import React from 'react'
-import appIcon from '../assets/appliance.png'
-import mobileIcon from '../assets/mobile-phone.png'
-import healthIcon from '../assets/hbeauty.png'
-import homeIcon from '../assets/home.svg'
-import tvIcon from '../assets/tv.png'
-import fashIcon from '../assets/fashion.png'
-import supIcon from '../assets/supermarket.png'
-import compIcon from '../assets/compute.png'
-import  babyIcon from '../assets/babyprod.png'
-import gameIcon from '../assets/gaming.png'
-import catIcon from '../assets/categories.png'
-import flashSales from '../assets/flash sales.jpg'
-import carTwo from '../assets/carouseltwo.gif'
-import carThree from '../assets/carouselthree.gif'
-import decSlide from '../assets/decslide.jpg'
-import deFacto from '../assets/defacto.jpg'
-import carFour from '../assets/carouselfour.gif'
-import phoneIcon from '../assets/phone-icon.png'
-import sellIcon from '../assets/sell-icon.png'
-import returnIcon from '../assets/return-icon.png'
-import shopEarn from '../assets/shop-earn.png'
-import chillWeb from '../assets/chilling-ac.gif'
-import cookWeb from '../assets/cooking-web.gif'
-import coolWeb from '../assets/cooling-web.gif'
-import whiteBlack from '../assets/whitebl.jpg'
-import skyRun from '../assets/skyrun.jpg'
-import hTv from '../assets/htv.jpg'
-import neXus from '../assets/nexus.jpg'
-import ecoFlow from '../assets/ecoflow.jpg'
-import adiDas from '../assets/white adidas.jpg'
-import appAc from '../assets/appair.png'
-import appFans from '../assets/fan.jpg'
-import appFridges from '../assets/fridges.png'
-import appMicro from '../assets/micro.png'
-import appKettle from '../assets/kettle.png'
-import appBlenders from '../assets/blenders.png'
-import appHair from '../assets/hair.png'
-import doubleBan from '../assets/dbanner1.png'
-import doubleBann from '../assets/dbanner2.png'
-import cardTv from '../assets/television.png'
-import cardNew from '../assets/new.gif'
-import cardClr from '../assets/clear.png'
-import cardAppl from '../assets/applia.png'
-import cardFifty from '../assets/fifty.gif'
-import cardPhone from '../assets/phone.png' 
-import cardSpecial from '../assets/special.png'
-import arrow from '../assets/arrow.svg'
-import iconFlash from '../assets/iconflash.png'
-import mediAna from '../assets/mediana.jpg'
-import aCe from '../assets/ace.jpg'
-import tempT from '../assets/temptation.jpg'
-import waTer from '../assets/pure oil.jpg'
-import itEl from '../assets/smart watch.jpg'
-import decoG from '../assets/decogear.jpg'
-
-
-
+import React, { useEffect, useState } from 'react'
+import { Link, useSearchParams} from 'react-router-dom'
+import axios from 'axios'
 
 const Content = () => {
+  const API_URL = import.meta.env.VITE_API_URL
+  const [products, setProducts] = useState([])
+  const [searchParams] = useSearchParams()
+  const searchTerm = searchParams.get('search')?.trim() || ''
+ 
+  const appsection = [
+    {id: 1, image: "/appair.png"},
+    {id: 2, image: "/fan.jpg"},
+    {id: 3, image: "/fridges.png"},
+    {id: 4, image: "/micro.png"},
+    {id: 5, image: "/kettle.png"},
+    {id: 6, image: "/blenders.png"},
+    {id: 7, image: "/hair.png"},
+  ]
+  {/*Fetch Product API*/}
+  useEffect(() => {
+   const url = searchTerm
+    ? `${API_URL}/products?search=${encodeURIComponent(searchTerm)}`
+    : `${API_URL}/products`
+
+   axios.get(url)
+   .then((response)=> {
+    console.log('API Response:', response.data);
+    if (response.data) {
+      setProducts(response.data)
+    }
+   })
+   .catch((err)=>{
+    console.log('Product not found', err);
+   })
+    
+  }, [API_URL, searchTerm])
+  
+  
   return (
     <>
-    
       <main className='outter'>
+        {searchTerm && (
+          <section className='search-results'>
+            <header className='search-results-head'>
+              <h1 className='search-results-title'>Search results for "{searchTerm}"</h1>
+              <Link to='/' className='search-clear'>Clear search</Link>
+            </header>
+            <div className='search-results-grid'>
+              {products.length ? (
+                products.map((product) => (
+                  <Link
+                    key={product._id}
+                    to={`/products/${product._id}`}
+                    className='search-product-card'
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    <img src={product.images[0]} alt={product.name} className='search-product-img' />
+                    <p className='cdtxt'>{product.name}</p>
+                    <p className='cdamt'>&#8358;{product.salesprice.toLocaleString()}</p>
+                    <p className='cdnt'>&#8358;{product.initialprice.toLocaleString()}</p>
+                  </Link>
+                ))
+              ) : (
+                <p className='search-empty'>No products found. Try another product name, brand, or category.</p>
+              )}
+            </div>
+          </section>
+        )}
+        {!searchTerm && (
+        <>
         <div className='inner'>
           <div className='first'>
             <div className='firstinner'>
-              <a href="#" className='outline'>
+              <Link className='outline'>
                 <img
-                  src={appIcon}
+                  src="/appliance.png"
                   style={{height: '20px', marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Appliances</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={mobileIcon}
+                  src="/mobile-phone.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Phones & Tablets</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={healthIcon}
+                  src="/hbeauty.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Health & Beauty</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={homeIcon}
+                  src="/home.svg"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Home & Office</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={tvIcon}
+                  src="/tv.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Electronics</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={fashIcon}
+                  src="/fashion.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Fashion</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={supIcon}
+                  src="/supermarket.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Supermarket</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={compIcon}
+                  src="/compute.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Computing</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={babyIcon}
+                  src="/babyprod.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Baby Products</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={gameIcon}
+                  src="/gaming.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Gaming</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <span className='fort'>Musical Instrument</span>
-              </a>
-              <a href="#" className='outline'>
+              </Link>
+              <Link  className='outline'>
                 <img
-                  src={catIcon}
+                  src="/categories.png"
                   style={{height: '20px',marginRight:'4px'}}
                  
                 />
                 <span className='fort'>Other Categories</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className='display'>
@@ -166,106 +173,106 @@ const Content = () => {
           >
             <div className="carousel-inner cbi">
               <div className="carousel-item active">
-                <img className="xyz" src={flashSales} />
+                <img className="xyz" src="/flash sales.jpg" />
               </div>
               <div className="carousel-item">
                 <img
                   className="xyz"
-                  src={carTwo}
+                  src="/carouseltwo.gif"
                   
                 />
               </div>
               <div className="carousel-item">
-                <img className="xyz" src={carThree} />
+                <img className="xyz" src="/carouselthree.gif" />
               </div>
               <div className="carousel-item">
-                <img className="xyz" src={decSlide} />
+                <img className="xyz" src="/decslide.jpg" />
               </div>
               <div className="carousel-item">
-                <img className="xyz" src={deFacto} />
+                <img className="xyz" src="/defacto.jpg" />
               </div>
               <div className="carousel-item">
-                <img className="xyz" src={carFour} />
+                <img className="xyz" src="/carouselfour.gif" />
               </div>
             </div>
           </div>
           </div>
           <div className='cards'>
             <div className='cut'>
-              <a className="line" href="#">
+              <Link className="line" >
                 <img
-                  src={phoneIcon}
+                  src="/phone-icon.png"
                   style={{height: '20px', position: 'absolute', top: '7px', left: '5px'}}
                 />
                 <p className="fork">CALL TO ORDER</p>
                 <p className="fit">0700-600-0000</p>
-              </a>
-              <a className="line" href="#">
+              </Link>
+              <Link className="line" >
                 <img
-                  src={sellIcon}
+                  src="/sell-icon.png"
                   style={{height: '20px', position: 'absolute'}}
                 />
                 <p className="fork">Sell on Jumia</p>
-              </a>
-              <a className="line" href="#">
+              </Link>
+              <Link className="line" href="#">
                 <img
-                  src={returnIcon}
+                  src="/return-icon.png"
                   alt=""
                   style={{height: '20px', position: 'absolute'}}
                 />
                 <p className="fork">Best Deals</p>
-              </a>
+              </Link>
             </div>
             <div className='pay'>
-            <img src={shopEarn} />
+            <img src="/shop-earn.png" />
             </div>
           </div>
         </div>
         <div className='xxl'>
         <section className='cardth1'>
           <div className='downward'>
-          <a href="#" className='donb2'>
+          <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardTv}  className='imglock1' />
+                <img src="/television.png"  className='imglock1' />
                 </div>
                 <p className='subtext'>TV & Audio Deals</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardNew}  className='imglock1' />
+                <img src="/new.gif"  className='imglock1' />
                 </div>
                 <p className='subtext'>New Arrival</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardClr}  className='imglock1' />
+                <img src="/clear.png"  className='imglock1' />
                 </div>
                 <p className='subtext'>Clearance Sale</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardAppl}  className='imglock1' />
+                <img src="/applia.png"  className='imglock1' />
                 </div>
                 <p className='subtext'>Appliances Deals</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardFifty}  className='imglock1' />
+                <img src="/fifty.gif"  className='imglock1' />
                 </div>
                 <p className='subtext'>Up to 50% off</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardPhone}  className='imglock1' />
+                <img src="/phone.png"  className='imglock1' />
                 </div>
                 <p className='subtext'>Phones & Tablet Deals</p>
-              </a>
-              <a href="#" className='donb2'>
+              </Link>
+              <Link  className='donb2'>
                 <div className='lockd1'>
-                <img src={cardSpecial}  className='imglock1' />
+                <img src="/special.png"  className='imglock1' />
                 </div>
                 <p className='subtext'>Special Offer</p>
-              </a>
+              </Link>
           </div>
           
         </section>
@@ -274,7 +281,7 @@ const Content = () => {
         <section className='cardoh'>
           <header className='disect' style={{backgroundColor:'red', color:'white'}}>
             <div className='testing'>
-                <img src={iconFlash} className='flashsale' />
+                <img src="/iconflash.png" className='flashsale' />
                 <p className="size">Flash Sales</p>
             </div>
             <div className='yog'>
@@ -282,74 +289,33 @@ const Content = () => {
                 <time className='ffs' dateTime='2024-08-14' id='demo'> 14h : 59m : 00s </time>
               </div>
             <div className='yoga'>
-                <a className='just1' href="#">
+                <Link className='just1' >
                   SEE ALL
-                  <img src={arrow} className='dirt' />
-                </a>
+                  <img src="/arrow.svg" className='dirt' />
+                </Link>
             </div>
           </header>
           <div className='bisect'>
             <div className='onward'>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={mediAna} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Mediana Condition...</p>
-                    <p className='cdamt'>&#8358;2,785</p>
-                    <p className='cdnt'>&#8358;4,000</p>
+              { products && products.length > 6 ? (
+                 products.slice(0,6).map((product)=> ( 
+                  <div key={product._id} className='tfu'>
+                     <Link to={`/products/${product._id}`} className='dond' onClick={() => window.scrollTo(0, 0)}>
+                       <img src={product.images[0]} alt={product.name} className='iimg' />
+                       <div>
+                        <p className='cdtxt'>{product.name}</p>
+                        <p className='cdamt'>&#8358;{product.salesprice.toLocaleString()}</p>
+                        <p className='cdnt'>&#8358;{product.initialprice.toLocaleString()}</p>
+                       </div>
+                     </Link>
                   </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={aCe} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Ace Elec 2000Mah Ultr</p>
-                    <p className='cdamt'>&#8358;8,500</p>
-                    <p className='cdnt'>&#8358;15,000</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={tempT} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Temptation Perfume..</p>
-                    <p className='cdamt'>&#8358;4,500</p>
-                    <p className='cdnt'>&#8358;7,000</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={waTer} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Water-soluble Aroma...</p>
-                    <p className='cdamt'>&#8358;6,160</p>
-                    <p className='cdnt'>&#8358;12,680</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={itEl} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Itel 1.83" Sones Smart</p>
-                    <p className='cdamt'>&#8358;15,199</p>
-                    <p className='cdnt'>&#8358;50,000</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={decoG} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Deco Gear Laptop sta...</p>
-                    <p className='cdamt'>&#8358;2,980</p>
-                    <p className='cdnt'>&#8358;5,898</p>
-                  </div>
-                </a>
-              </div>
+                ))
+              ) : (
+                <p>Loading Products....</p>
+              )     
+             
+            }
+             
             </div>
           </div>
         </section>
@@ -365,13 +331,13 @@ const Content = () => {
             justifyContent: 'space-between'
           }}>
           <div>
-            <a href="#"> <img src={chillWeb}  /> </a>
+            <Link > <img src="/chilling-ac.gif"  /> </Link>
           </div>
           <div>
-            <a href="#"> <img src={cookWeb}/> </a>
+            <Link > <img src="/cooking-web.gif"/> </Link>
           </div>
           <div>
-            <a href="#"> <img src={coolWeb}/> </a>
+            <Link > <img src="/cooling-web.gif"/> </Link>
           </div>
         </div>
         </section>
@@ -384,75 +350,30 @@ const Content = () => {
             <div className='yoga'>
                 <a className="just1" href="#">
                   SEE ALL
-                  <img src={arrow} className='dirt' />
+                  <img src="/arrow.svg" className='dirt' />
                 </a>
             </div>
           </header>
           <div className='bisect'>
             <div className='onward'>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={whiteBlack} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Osc Signatures Mens..</p>
-                    <p className='cdamt'>&#8358;5,700</p>
-                    <p className='cdnt'>&#8358;8,000</p>
+            { products && products.length > 6 ? (
+                 products.slice(6, 12).map((product)=> ( 
+                  <div key={product._id} className='tfu'>
+                     <Link to={`/products/${product._id}`} className='dond'>
+                       <img src={product.images[0]} alt={product.name} className='iimg' />
+                       <div>
+                        <p className='cdtxt'>{product.name}</p>
+                        <p className='cdamt'>&#8358;{product.salesprice.toLocaleString()}</p>
+                        <p className='cdnt'>&#8358;{product.initialprice.toLocaleString()}</p>
+                       </div>
+                     </Link>
                   </div>
-                  {/* <div className='fnt1'>Osc Signatures Mens..</div>
-                  <div className='font2'>&#8358;5,700</div>
-                  <div className='fnt3'>&#8358;8,000</div> */}
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={skyRun} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Skyrun 1HP-Split Air..</p>
-                    <p className='cdamt'>&#8358;299,990</p>
-                    <p className='cdnt'>&#8358;635,600</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={hTv} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Hikers 43" FHD LED TV</p>
-                    <p className='cdamt'>&#8358;192,900</p>
-                    <p className='cdnt'>&#8358;234,423</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={neXus} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>Nexus Gas Cooker</p>
-                    <p className='cdamt'>&#8358;139,135</p>
-                    <p className='cdnt'>&#8358;142,135</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={ecoFlow} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>ECOFLOW Power Sta..</p>
-                    <p className='cdamt'>&#8358;639,999</p>
-                    <p className='cdnt'>&#8358;710,761</p>
-                  </div>
-                </a>
-              </div>
-              <div className='tfu'>
-                <a href="#" className='dond'>
-                  <img src={adiDas} className='iimg' />
-                  <div>
-                    <p className='cdtxt'>ADIDAS Core Sneakers</p>
-                    <p className='cdamt'>&#8358;20,407</p>
-                    <p className='cdnt'>&#8358;51,017</p>
-                  </div>
-                </a>
-              </div>
+                ))
+              ) : (
+                <p>Loading Products....</p>
+              )     
+             
+            }
             </div>
           </div>
         </section>
@@ -468,10 +389,10 @@ const Content = () => {
             justifyContent: 'space-between'
           }}>
           <div>
-            <a href="#"> <img src={doubleBan}  /> </a>
+            <Link > <img src="/dbanner1.png"  /> </Link>
           </div>
           <div>
-            <a href="#"> <img src={doubleBann}/> </a>
+            <Link> <img src="/dbanner2.png"/> </Link>
           </div>
         </div>
         </section>
@@ -484,45 +405,21 @@ const Content = () => {
           </header>
           <div className='eject'>
             <div className='downward'>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appAc} alt="AIR CONDITIONERS" className='imglock' />
+              {appsection.map((section)=> (
+                <div key={section.id}>
+                  <Link to={`/section/${section.id}`} className='donb5'>
+                    <div className='lockd'>
+                    <img src={section.image} alt={section.name} className='imglock' />
+                    </div>
+                  </Link>
                 </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appFans}  className='imglock' />
-                </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appFridges}  className='imglock' />
-                </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appMicro}  className='imglock' />
-                </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appKettle}  className='imglock' />
-                </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appBlenders}  className='imglock' />
-                </div>
-              </a>
-              <a href="#" className='donb5'>
-                <div className='lockd'>
-                <img src={appHair}  className='imglock' />
-                </div>
-              </a>
+              ))}
             </div>
           </div>
         </section>
        </div>
+       </>
+       )}
       </main>
     </>
   )

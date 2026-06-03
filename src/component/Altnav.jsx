@@ -1,15 +1,21 @@
-import React from 'react'
-import jumiaLogo from '../assets/jumia.png'
-import searchBar from '../assets/search.svg'
-import userHead from '../assets/account.svg'
-import helpIcon from '../assets/help.svg'
-import cartIcon from '../assets/cart.svg'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Altnav = () => {
   let navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('')
   const handleLogin = () => {
     navigate('/identification')
+  }
+  const handleSearch = (event) => {
+    event.preventDefault()
+    const query = searchTerm.trim()
+
+    if (query) {
+      navigate(`/?search=${encodeURIComponent(query)}`)
+    } else {
+      navigate('/')
+    }
   }
   return (
     <>
@@ -17,19 +23,25 @@ const Altnav = () => {
        <div className='ptd'>
         <div className='cc1'>
           <Link to='/'>
-          <img className='ff2' src={jumiaLogo} />
+          <img className='ff2' src="/jumia.png" />
           </Link>
         </div>
-        <form className='cc2'> 
-          <input className='space' type='search' placeholder='Search products, brands and categories'/>
-          <img className='search-icon' src={searchBar}  />
+        <form className='cc2' onSubmit={handleSearch}> 
+          <input
+            className='space'
+            type='search'
+            placeholder='Search products, brands and categories'
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <img className='search-icon' src="/search.svg"  />
           <button className='option'>SEARCH</button>
         </form>
         <ul className='cc3'>
           <li className='nav-item dropdown cc4'>
             <img
               className='c00'
-              src={userHead}
+              src="/account.svg"
             />
             <ul className='dropdown-menu kyc'>
               <li>
@@ -50,7 +62,7 @@ const Altnav = () => {
           <li className='nav-item dropdown cc9'>
             <img
               className='c6'
-              src={helpIcon}  
+              src="/help.svg"  
             />
             <Link
               className="nav-link text-black dropdown-toggle c67"
@@ -78,7 +90,7 @@ const Altnav = () => {
           <li className='nav-item cc4'>
             <img
               className='c6'
-              src={cartIcon}
+              src="/cart.svg"
             />
             <a className='nav-link active text-black' aria-current="page" href="#">
               <span className='contd'>Cart</span>

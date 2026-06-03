@@ -1,23 +1,4 @@
 import React from 'react'
-import aboutusOne from '../assets/aboutusone.jpg'
-import aboutusThree from '../assets/aboutusthree.png'
-import aboutusSix from '../assets/aboutussix.png'
-import aboutusSeven from '../assets/aboutusseven.png'
-import aboutusEight from '../assets/aboutuseight.jpg'
-import aboutusNine from '../assets/aboutusnine.jpg'
-import aboutusTen from '../assets/aboutusten.jpg'
-import mobileFirst from '../assets/vmobilefirst.jpg'
-import mobileOne from '../assets/vmobileone.png'
-import mobileTwo from '../assets/vmobiletwo.png'
-import mobileThree from '../assets/vmobilethree.png'
-import mobileFour from '../assets/vmobilefour.png'
-import mobileSix from '../assets/vmobilesix.png'
-import mobileSeven from '../assets/vmobileseven.png'
-import mobileEight from '../assets/vmobileeight.png'
-import mobileNine from '../assets/vmobilenine.png'
-import mobileTen from '../assets/vmobileten.png'
-import mobileEleven from '../assets/vmobileeleven.png'
-import mobileTwelve from '../assets/vmobiletwelve.png'
 import { Link } from 'react-router-dom'
 
 const detail = () => {
@@ -26,7 +7,7 @@ const detail = () => {
       <main className='outter1'>
         <div className='inner1'>
         <div className='mview1' style={{width:'100%'}}>
-             <img className='viewimg' src={mobileFirst} alt="" />
+             <img className='viewimg' src="/vmobilefirst.jpg" alt="" />
          </div>
             <div className='xxl-row1'>
                 <p className='about-us'>About us</p>
@@ -52,7 +33,7 @@ const detail = () => {
             <div className='xxl-rowi'>
             <p className='sb-headm'>Our Vision</p>
                 <div>
-                    <img className='locate' src={aboutusOne} alt="" />
+                    <img className='locate' src="/aboutusone.jpg" alt="" />
                 </div>
                 <br  className='clear'/>
                 <p className='sb-head'>Our Vision</p>
@@ -61,7 +42,7 @@ const detail = () => {
                 
                 <div className='m-row1'>
                     <center>
-                        <img src={mobileOne} alt="" style={{width:'40%'}}/>
+                        <img src="/vmobileone.png" alt="" style={{width:'40%'}}/>
                         <p className='m-text'>
                             Access 
                             <strong>100%</strong>
@@ -72,14 +53,14 @@ const detail = () => {
                 </div>
                 <div className='m-row1'>
                     <center>
-                        <img src={mobileTwo} alt="" style={{width:'40%'}} />
+                        <img src="/vmobiletwo.png" alt="" style={{width:'40%'}} />
                         <p className='m-text'>Search,Order on all Platforms,Pay on Delivery</p>
                     </center>
                 </div>
                 <br className='clear' />
                 <div className='m-row1'>
                     <center>
-                        <img src={mobileThree} alt="" style={{width:'40%'}}/>
+                        <img src="/vmobilethree.png" alt="" style={{width:'40%'}}/>
                         <p className='m-text'>Buy Anything You want online at the 
                             <strong>Best Prices</strong>
                         </p>
@@ -87,7 +68,7 @@ const detail = () => {
                 </div>
                 <div className='m-row1'>
                     <center>
-                        <img src={mobileFour} alt=""  style={{width:'40%'}}/>
+                        <img src="/vmobilefour.png" alt=""  style={{width:'40%'}}/>
                         <p className='m-text'>Assisting Our Customers for the Best Shopping Experience</p>
                     </center>
                 </div>
@@ -130,18 +111,18 @@ const detail = () => {
             </div>
             <div className='xxl-rowm'>
                 <center>
-                    <img className src={aboutusThree}  />
+                    <img className src="/aboutusthree.png"  />
                     <div className='grey-coverm'>
                        <p className='sb-title1m'>Jumia Today</p> 
                        <div className='mv-row2'>
                            
-                                <img src={mobileSix} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobilesix.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>6,000,000 Products</div>
                            
                         </div>
                         <div className='mv-row2'>
                            
-                                <img src={mobileSeven} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobileseven.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>Over 50,000 International & National Brands</div>
                            
                         </div>
@@ -149,13 +130,13 @@ const detail = () => {
                         <br />
                         <div className='mv-row2'>
                            
-                                <img src={mobileEight} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobileeight.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>13 African Countries</div>
                          
                         </div>
                         <div className='mv-row2'>
                            
-                                <img src={mobileNine} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobilenine.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>10 Commercial Events</div>
                           
                         </div>
@@ -163,13 +144,13 @@ const detail = () => {
                         <br />
                         <div className='mv-row2'>
                            
-                                <img src={mobileTen} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobileten.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>15,000,000 Monthly Users</div>
                           
                         </div>
                         <div className='mv-row2'>
                             
-                                <img src={mobileEleven} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobileeleven.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>#1 E-Commerce Company</div>
                            
                         </div>
@@ -177,7 +158,7 @@ const detail = () => {
                         <br />
                         <div className='mv-row2'>
                             
-                                <img src={mobileTwelve} alt="" style={{width:'40%'}}/>
+                                <img src="/vmobiletwelve.png" alt="" style={{width:'40%'}}/>
                                 <div className='mv-text'>Over 10,000 Active Vendors</div>
                             
 
@@ -192,7 +173,7 @@ const detail = () => {
                 <br />
                 <br />
                 <center>
-                    <img className src={aboutusThree}  />
+                    <img className src="/aboutusthree.png"  />
                     <div className='grey-cover'>
                         <p className='sb-title1'>Jumia Today</p>
                        
@@ -295,7 +276,7 @@ const detail = () => {
                 <br />
                 <br />
                 <center>
-                    <img src={aboutusSix} alt="" />
+                    <img src="/aboutussix.png" alt="" />
                     <div className='grey-cover'>
                         <p className='sb-title1'>History</p>
                         <br />
@@ -346,7 +327,7 @@ const detail = () => {
                 <br />
                 <br />
                 <center>
-                    <img src={aboutusSeven} alt="" />
+                    <img src="/aboutusseven.png" alt="" />
                     <div className='grey-cover'>
                         <p className='sb-title1'>Awards</p>
                         <br />
@@ -376,14 +357,14 @@ const detail = () => {
                         <br className='clear' />
                         <br />
                         <div className='grid2'>
-                            <img className='grid3' src={aboutusEight} alt="" />
+                            <img className='grid3' src="/aboutuseight.jpg" alt="" />
                             <br className='clear'/>
                             <br />
                             <p className='txtct'>Brand Journalist Association Awards BJAN (2013)</p>
                         </div>
                         <div className='grid4' style={{textAlign:'center'}}>
                             <center>
-                            <img className='grid5' src={aboutusEight} alt="" />
+                            <img className='grid5' src="/aboutuseight.jpg" alt="" />
                             <br />
                             <p className='grid6'>Brand Journalist Association Awards BJAN(2013)</p>
                             </center>
@@ -391,7 +372,7 @@ const detail = () => {
                         </div>
                         <div className='grid4' style={{textAlign:'center'}}>
                             <center>
-                            <img className='grid5' src={aboutusNine} alt="" />
+                            <img className='grid5' src="/aboutusnine.jpg" alt="" />
                             <br />
                             <p className='grid6'>World Retail Awards 2013</p>
                             </center>
@@ -399,20 +380,20 @@ const detail = () => {
                         </div>
                         <div className='grid4' style={{textAlign:'center'}}>
                             <center>
-                            <img className='grid5' src={aboutusTen} alt="" />
+                            <img className='grid5' src="/aboutusten.jpg" alt="" />
                             <br />
                             <p className='grid6'>e-Commerce Website of the Year(Beacon of ICT Award)</p>
                             </center>
                            
                         </div>
                         <div className='grid2'>
-                            <img className='grid3' src={aboutusNine} alt="" />
+                            <img className='grid3' src="/aboutusnine.jpg" alt="" />
                             <br className='clear'/>
                             <br />
                             <p className='txtct'>World Retail Awards 2013</p>
                         </div>
                         <div className='grid2'>
-                            <img className='grid3'src={aboutusTen} alt="" />
+                            <img className='grid3'src="/aboutusten.jpg" alt="" />
                             <br className='clear'/>
                             <br />
                             <p className='txtct'>e-Commerce Website of the Year(Beacon of ICT Award)</p>

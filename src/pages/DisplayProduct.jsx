@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const DisplayProduct = () => {
+const API_URL = import.meta.env.VITE_API_URL
 const [products, setproducts] = useState([])
-let url = 'http://localhost:5002/prod/cart'
+let url = `${API_URL}/prod/cart`
 axios.get(url)
 .then((response)=>{
     console.log(response.data);

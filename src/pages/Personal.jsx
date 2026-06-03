@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useFormik } from 'formik'
 import  *as yup  from 'yup'
-import jumiaLog from '../assets/myjumia-top-logo.png'
-import jumiaLogo from '../assets/jumia.png'
 import { useNavigate } from 'react-router-dom'
 
 const Personal = () => {
   let navigate = useNavigate()
   let email = localStorage.getItem("userEmail")
+  const API_URL = import.meta.env.VITE_API_URL
 
-    let url = 'http://localhost:5001/user/update'
+    let url = `${API_URL}/user/update`
     const [message, setMessage] = useState('')
     let formik = useFormik({
         initialValues:{
@@ -52,7 +51,7 @@ const Personal = () => {
                    <div className='container1'>
                        <div className='top-bar'></div>
                        <div className='content'>
-                            <img src={jumiaLog} alt="" className='logo1' />
+                            <img src="/myjumia-top-logo.png" alt="" className='logo1' />
                        </div>
                        <div className='mycontext1'>
                         <form  onSubmit={formik.handleSubmit}>
@@ -98,7 +97,7 @@ const Personal = () => {
                            For further support, you may visit the Help Center or contact our customer service team.
                        </div>
                        <div className='footer-logo'>
-                        <img src={jumiaLogo} alt="" className='footer-img' />
+                        <img src="/jumia.png" alt="" className='footer-img' />
                        </div>
                    </div>
                </div>
